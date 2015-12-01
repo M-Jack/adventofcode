@@ -32,7 +32,12 @@ prop_reverse ps = elevator s == elevator (reverse s)
 
 spec :: Spec
 spec = do
-    describe "Day01" $ do
-       it "fullfill the sum property" $ property prop_sum
-       it "fullfill the limit property" $ property prop_limit
-       it "fullfill the reverse property" $ property prop_reverse
+        describe "elevator" $ do
+            it "fullfill the sum property" $ property prop_sum
+            it "fullfill the limit property" $ property prop_limit
+            it "fullfill the reverse property" $ property prop_reverse
+            it "return 2 in this case" $ elevator "((" `shouldBe` 2
+        describe "firstBasement" $ do
+            it "return 1 in this case" $ firstBasement ")" `shouldBe` 1
+            it "return 1 in this case" $ firstBasement "))()()((()))((()" `shouldBe` 1
+            it "return 17 in this case" $ firstBasement "(((()(())())())))" `shouldBe` 17
