@@ -4,9 +4,11 @@ import qualified  Data.Map as M
 import System.Environment (getArgs)
 import System.Exit (exitSuccess)
 import Day01
+import Day02
 
 solutions = M.fromList [
-                        (1, day01)
+                        (1, day01),
+                        (2, day02)
                         ]
 
 solution :: Integer -> Maybe (IO ())
